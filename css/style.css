@@ -1,0 +1,140 @@
+:root {
+  --bgcolor: rgb(24, 22, 22);
+  --text-color: white;
+  --btn-background: #2bb9f1;
+  --btn-radius: 0.5rem;
+  --radius: 1rem;
+  --btn-padding: 0.7rem 1.5rem;
+  --margin: 1rem;
+  --btn-hover: #1894c6;
+  --footer-clr: black;
+  --shadow: -5px 4px 30px rgb(38 35 35);
+  --watch-bgclr-bdr: rgb(183, 110, 225);
+  --watch-bgclr: rgba(130, 212, 239, 0.407);
+  --transition: 0.4s ease-in-out;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Anek Tamil", sans-serif;
+}
+.body {
+  background-color: var(--bgcolor);
+  color: var(--text-color);
+  text-align: center;
+  height: 92vh;
+}
+.head h1 {
+  font-size: 2rem;
+  padding-top: 2rem;
+  letter-spacing: 1rem;
+  line-height: 3rem;
+  /* font-weight: bold; */
+  /* color: var(--btn-background); */
+}
+
+.head p {
+  color: var(--btn-background);
+  font-family: "Beau Rivage";
+  font-size: 1rem;
+  font-style: italic;
+  letter-spacing: 0.3rem;
+  /* text-decoration: underline; */
+  line-height: 0.2rem;
+}
+
+.stopwatch {
+  margin-top: 2rem;
+  border: 2px solid var(--watch-bgclr-bdr);
+  height: 25rem;
+  width: 30rem;
+  margin-left: auto;
+  margin-right: auto;
+
+  background-color: var(--watch-bgclr);
+  padding: 3rem;
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.watch {
+  font-size: 2rem;
+  margin-bottom: 0.8rem;
+}
+button {
+  font-family: "Beau Rivage";
+  color: var(--text-color);
+  font-size: 1rem;
+  letter-spacing: 0.3rem;
+  background-color: var(--btn-background);
+  padding: var(--btn-padding);
+  border: 1px solid var(--text-color);
+  border-radius: var(--btn-radius);
+}
+button:hover {
+  box-shadow: var(--shadow);
+  background-color: var(--btn-hover);
+  transition: var(--transition);
+}
+.start {
+  margin-bottom: 0.7rem;
+}
+.pause,
+.reset {
+  margin: 0.4rem;
+}
+.hidden {
+  display: none;
+}
+
+.footer {
+  height: 8vh;
+  background-color: var(--footer-clr);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.text-footer {
+  color: var(--text-color);
+  text-align: center;
+  font-size: 0.73rem;
+  padding-top: auto;
+}
+.text-footer a {
+  text-decoration: none;
+  /* color: var(--text-color); */
+  color: var(--btn-background);
+}
+.text-footer a:hover {
+  transition: var(--transition);
+
+  text-decoration: underline;
+}
+
+@media only screen and (max-width: 800px) {
+  .head h1 {
+    font-size: 1.7rem;
+    letter-spacing: 0.4rem;
+  }
+  .head p {
+    font-size: 0.7rem;
+    letter-spacing: 0.18rem;
+  }
+  .stopwatch {
+    height: 17em;
+    width: 17rem;
+    margin-top: 5rem;
+    padding: 2rem;
+  }
+  .watch {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  button {
+    font-size: 0.7rem;
+  }
+}
