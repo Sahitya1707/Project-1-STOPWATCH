@@ -115,8 +115,15 @@ pause.addEventListener("click", function () {
   }
 });
 lap.addEventListener("click", function () {
+  if (no >= "11") {
+    lapTime.innerHTML = `<div class="labscompleted">
+  10 LABS COMPLETED <br/>PRESS RESET !!!</div>`;
+  }
   no++;
-  lapTime.classList.remove("hidden");
 
-  lapTime.innerHTML += `<div> <span class="number">${no}.</span> <span class="laphr">${hour.innerHTML}</span> : <span class="lapmin">${minute.innerHTML}</span> : <span class="lapsec">${second.innerHTML}</span> : <span class="lapmilisec">${milisecond.innerHTML}</span> </div>`;
+  if (no <= "10") {
+    lapTime.classList.remove("hidden");
+
+    lapTime.innerHTML += `<div> <span class="number">${no}.</span> <span class="laphr">${hour.innerHTML}</span> : <span class="lapmin">${minute.innerHTML}</span> : <span class="lapsec">${second.innerHTML}</span> : <span class="lapmilisec">${milisecond.innerHTML}</span> </div>`;
+  }
 });

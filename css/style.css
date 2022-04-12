@@ -102,22 +102,28 @@ button:hover {
   margin-top: 01rem;
   width: 70%;
   height: 134px;
-  background-color: var(--watch-bgclr-bdr);
+  background-color: rgba(183, 110, 225, 0.326);
   border-radius: var(--radius);
   border: 2px solid var(--text-color);
   margin-left: auto;
   margin-right: auto;
   padding-top: 0.3rem;
-  overflow-x: scroll;
-  scrollbar-width: none;
+  overflow-y: scroll;
+  scrollbar-width: thin;
 }
 .laptime::-webkit-scrollbar {
+  /* scrollbar-width: thin; */
   display: none;
 }
 .number {
-  color: rgb(245, 231, 231);
+  color: rgb(239, 32, 104);
 
   font-weight: bold;
+}
+.labscompleted {
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  letter-spacing: 0.1rem;
 }
 .footer {
   height: 8vh;
