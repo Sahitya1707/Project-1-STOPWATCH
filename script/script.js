@@ -90,6 +90,8 @@ reset.addEventListener("click", function () {
   second.innerHTML = sec;
   milisecond.innerHTML = msec;
 
+  // this for lap
+  lapTime.classList.add("hidden");
   lapHour.innerHTML = hr;
   lapMinute.innerHTML = min;
   lapSecond.innerHTML = sec;
