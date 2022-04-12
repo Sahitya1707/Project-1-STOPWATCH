@@ -12,13 +12,26 @@ const milisecond = document.querySelector(".milisecond");
 const start = document.querySelector(".start");
 const pause = document.querySelector(".pause");
 const reset = document.querySelector(".reset");
-const pauseReset = document.querySelector(".otherbtns");
+const otherBtns = document.querySelector(".otherbtns");
+const lap = document.querySelector(".lap");
+const lapTime = document.querySelector(".laptime");
+const lapHour = document.querySelector(".laphr");
+const lapMinute = document.querySelector(".lapmin");
+const lapSecond = document.querySelector(".lapsec");
+const lapMilisecond = document.querySelector(".lapmilisec");
+
 let interval;
 pause.innerText = pauseContent;
 hour.innerHTML = hr;
 minute.innerHTML = min;
 second.innerHTML = sec;
 milisecond.innerHTML = msec;
+
+// for lap
+lapHour.innerHTML = hr;
+lapMinute.innerHTML = min;
+lapSecond.innerHTML = sec;
+lapMilisecond.innerHTML = msec;
 
 function display() {
   msec++;
@@ -59,13 +72,12 @@ function display() {
 
 start.addEventListener("click", function () {
   interval = setInterval(display, 10);
-
   start.classList.add("hidden");
-  pauseReset.classList.remove("hidden");
+  otherBtns.classList.remove("hidden");
 });
 reset.addEventListener("click", function () {
   clearInterval(interval);
-  pauseReset.classList.add("hidden");
+  otherBtns.classList.add("hidden");
   start.classList.remove("hidden");
   hr = "00";
   min = "00";
@@ -77,6 +89,11 @@ reset.addEventListener("click", function () {
   minute.innerHTML = min;
   second.innerHTML = sec;
   milisecond.innerHTML = msec;
+
+  lapHour.innerHTML = hr;
+  lapMinute.innerHTML = min;
+  lapSecond.innerHTML = sec;
+  lapMilisecond.innerHTML = msec;
 });
 
 pause.addEventListener("click", function () {
@@ -88,3 +105,48 @@ pause.addEventListener("click", function () {
     pause.innerText = pauseContent;
   }
 });
+lap.addEventListener("click", function () {
+  lapTime.classList.remove("hidden");
+  // for lapmsec
+  if (msec <= 9) {
+    lapMilisecond.innerHTML = "0" + msec;
+  }
+  if (msec === "00") {
+    lapSecond.innerHTML = msec;
+  }
+  if (msec > 9) {
+    lapMilisecond.innerHTML = msec;
+  }
+  // for lapsec
+  if (sec <= 9) {
+    lapSecond.innerHTML = "0" + sec;
+  }
+  if (sec === "00") {
+    lapSecond.innerHTML = sec;
+  }
+  if (sec > 9) {
+    lapSecond.innerHTML = sec;
+  }
+  // for lapmin
+  if (min <= 9) {
+    lapMinute.innerHTML = "0" + min;
+  }
+  if (min === "00") {
+    lapMinute.innerHTML = min;
+  }
+  if (min > 9) {
+    lapMinute.innerHTML = min;
+  }
+  // for laphr
+
+  if (hr <= 9) {
+    lapHour.innerHTML = "0" + hr;
+  }
+  if (hr === "00") {
+    lapHour.innerHTML = hr;
+  }
+  if (hr > 9) {
+    lapHour.innerHTML = hr;
+  }
+});
+console.log(lapHour);
