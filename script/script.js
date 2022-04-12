@@ -4,6 +4,7 @@ let sec = "00";
 let msec = "00";
 let pauseContent = "PAUSE";
 let resumeContent = "RESUME";
+let no = "0";
 
 const hour = document.querySelector(`.hour`);
 const minute = document.querySelector(".minute");
@@ -19,6 +20,7 @@ const lapHour = document.querySelector(".laphr");
 const lapMinute = document.querySelector(".lapmin");
 const lapSecond = document.querySelector(".lapsec");
 const lapMilisecond = document.querySelector(".lapmilisec");
+const number = document.querySelector(".number");
 
 let interval;
 pause.innerText = pauseContent;
@@ -26,12 +28,13 @@ hour.innerHTML = hr;
 minute.innerHTML = min;
 second.innerHTML = sec;
 milisecond.innerHTML = msec;
+// number.innerHTML = no;
 
 // for lap
-lapHour.innerHTML = hr;
-lapMinute.innerHTML = min;
-lapSecond.innerHTML = sec;
-lapMilisecond.innerHTML = msec;
+// lapHour.innerHTML = hr;
+// lapMinute.innerHTML = min;
+// lapSecond.innerHTML = sec;
+// lapMilisecond.innerHTML = msec;
 
 function display() {
   msec++;
@@ -79,10 +82,12 @@ reset.addEventListener("click", function () {
   clearInterval(interval);
   otherBtns.classList.add("hidden");
   start.classList.remove("hidden");
+  lapTime.classList.add("hidden");
   hr = "00";
   min = "00";
   sec = "00";
   msec = "00";
+  no = "0";
   pauseContent = "PAUSE";
   pause.innerText = pauseContent;
   hour.innerHTML = hr;
@@ -90,12 +95,14 @@ reset.addEventListener("click", function () {
   second.innerHTML = sec;
   milisecond.innerHTML = msec;
 
+  lapTime.innerHTML = `<div></div>`;
+
   // this for lap
-  lapTime.classList.add("hidden");
-  lapHour.innerHTML = hr;
-  lapMinute.innerHTML = min;
-  lapSecond.innerHTML = sec;
-  lapMilisecond.innerHTML = msec;
+  // lapTime.classList.add("hidden");
+  // lapHour.innerHTML = hr;
+  // lapMinute.innerHTML = min;
+  // lapSecond.innerHTML = sec;
+  // lapMilisecond.innerHTML = msec;
 });
 
 pause.addEventListener("click", function () {
@@ -108,47 +115,8 @@ pause.addEventListener("click", function () {
   }
 });
 lap.addEventListener("click", function () {
+  no++;
   lapTime.classList.remove("hidden");
-  // for lapmsec
-  if (msec <= 9) {
-    lapMilisecond.innerHTML = "0" + msec;
-  }
-  if (msec === "00") {
-    lapSecond.innerHTML = msec;
-  }
-  if (msec > 9) {
-    lapMilisecond.innerHTML = msec;
-  }
-  // for lapsec
-  if (sec <= 9) {
-    lapSecond.innerHTML = "0" + sec;
-  }
-  if (sec === "00") {
-    lapSecond.innerHTML = sec;
-  }
-  if (sec > 9) {
-    lapSecond.innerHTML = sec;
-  }
-  // for lapmin
-  if (min <= 9) {
-    lapMinute.innerHTML = "0" + min;
-  }
-  if (min === "00") {
-    lapMinute.innerHTML = min;
-  }
-  if (min > 9) {
-    lapMinute.innerHTML = min;
-  }
-  // for laphr
 
-  if (hr <= 9) {
-    lapHour.innerHTML = "0" + hr;
-  }
-  if (hr === "00") {
-    lapHour.innerHTML = hr;
-  }
-  if (hr > 9) {
-    lapHour.innerHTML = hr;
-  }
+  lapTime.innerHTML += `<div> <span class="number">${no}.</span> <span class="laphr">${hour.innerHTML}</span> : <span class="lapmin">${minute.innerHTML}</span> : <span class="lapsec">${second.innerHTML}</span> : <span class="lapmilisec">${milisecond.innerHTML}</span> </div>`;
 });
-console.log(lapHour);
